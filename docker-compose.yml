@@ -8,9 +8,15 @@ services:
     container_name: mysqldb
     environment:
       MYSQL_ROOT_PASSWORD: 12345
+      MYSQL_DATABASE: sofsalud360
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     ports:
       - "3306:3306"
     volumes:
       - './docker/db/data:/var/lib/mysql'
       - './docker/db/my.cnf:/etc/mysql/conf.d/my.cnf'
+
+networks:
+  default:
+    driver: bridge
+
